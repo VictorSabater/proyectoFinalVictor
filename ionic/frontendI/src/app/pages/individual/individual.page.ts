@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {APINoticia} from "../../common/noticia";
 import {NoticiaService} from "../../services/noticia.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -9,27 +9,25 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./individual.page.scss'],
 })
 export class IndividualPage implements OnInit {
-noticia!:APINoticia
-  constructor(private noticiaService: NoticiaService, private activatedRoute: ActivatedRoute) { }
+  noticia!: APINoticia
+  id!: string | null
+
+  constructor(private noticiaService: NoticiaService, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.params['id'];
     this.loadNoticia();
   }
 
   private loadNoticia() {
-  const id = this.activatedRoute.snapshot.params;
-    this.noticiaService.getNoticia(id['id']).subscribe(
+    this.noticiaService.getNoticia(this.id).subscribe(
       {
         next: value => {
           this.noticia = value;
-        },
-        error: err => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log('Complete');
         }
       }
-    );
+    )
+
   }
 }

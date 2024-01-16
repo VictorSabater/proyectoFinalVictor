@@ -11,7 +11,11 @@ export class NoticiaService {
 
   constructor(private http:HttpClient) { }
 
-  getNoticia():Observable<APINoticia[]>{
+  getNoticias():Observable<APINoticia[]>{
     return this.http.get<APINoticia[]>(this.URI);
+  }
+
+  getNoticia(id: string | null):Observable<APINoticia>{
+    return this.http.get<APINoticia>(this.URI + 'noticia/'+id);
   }
 }

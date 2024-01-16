@@ -19,7 +19,7 @@ export class InicioPage implements OnInit {
 
 
   private loadNoticia() {
-    this.noticiaService.getNoticia().subscribe(
+    this.noticiaService.getNoticias().subscribe(
       {
         next: value => {
           this.noticia = value;

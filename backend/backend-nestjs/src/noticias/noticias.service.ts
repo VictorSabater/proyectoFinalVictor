@@ -58,7 +58,7 @@ export class NoticiasService {
 
     async updateNoticia(id: string,noticiaDto: NoticiaDto): Promise<NoticiaNest[] |APIResult> {
         try {
-           this.noticiaModel.findByIdAndUpdate(
+         await this.noticiaModel.findByIdAndUpdate(
                id,
                {$set: noticiaDto},
                {new: true}
@@ -75,10 +75,15 @@ export class NoticiasService {
 
     async deleteNoticia(id: string): Promise<APIResult> {
         try {
-            this.noticiaModel.findByIdAndUpdate(id)
-            return{
-                status: 'Noticia Borrada'
-            }
+            const lo =  await this.noticiaModel.findByIdAndDelete(id)
+           if (lo === null){
+               return{
+                   status: 'Noticia Borrada'
+               }
+           }else return {
+               status: 'Noticia Borrada'
+           }
+
         } catch (e) {
             return {
                 status: e

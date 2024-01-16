@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card>
+  <ion-card *ngIf="noticia">
     <swiper-container pagination="true">
       <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
         <img [src]="imagen" class="slide-image" alt="Imagen">

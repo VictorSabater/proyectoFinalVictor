@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card *ngFor="let noticias of noticia">
+  <ion-card *ngFor="let noticias of noticia" [routerLink]="'/individual/' + noticias._id">
     <swiper-container pagination="true">
       <swiper-slide class="slide-full" *ngFor="let imagen of noticias.images">
         <img [src]="imagen" class="slide-image" alt="Imagen">
