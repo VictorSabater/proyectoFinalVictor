@@ -27,7 +27,7 @@ export class NoticiasService {
 
     async getNoticias(): Promise<NoticiaNest[] |APIResult> {
         try {
-            return this.noticiaModel.find()
+            return await this.noticiaModel.find()
         } catch (e) {
             return {
                 status: e
@@ -37,7 +37,7 @@ export class NoticiasService {
 
     async getNotcia(id: string): Promise<NoticiaNest |APIResult> {
         try {
-            return this.noticiaModel.findById(id);
+            return await this.noticiaModel.findById(id);
         } catch (e) {
             return {
                 status: e
@@ -48,7 +48,7 @@ export class NoticiasService {
     async getNoticiaByName(name: string): Promise<NoticiaNest[] |APIResult> {
         try {
             const regex = new RegExp(name,'i')
-            return this.noticiaModel.find({$or: [{title: {$regex: regex}}, {author: {$regex: regex}}]});
+            return await this.noticiaModel.find({$or: [{title: {$regex: regex}}, {author: {$regex: regex}}]});
         } catch (e) {
             return {
                 status: e
@@ -93,7 +93,7 @@ export class NoticiasService {
 
     async getSections(): Promise<NoticiaNest[] | APIResult> {
         try {
-            return this.noticiaModel.find().distinct('section.name')
+            return await this.noticiaModel.find().distinct('section.name')
         } catch (e) {
             return {
                 status: e
@@ -103,7 +103,7 @@ export class NoticiasService {
 
     async getBySection(section: string): Promise<NoticiaNest[] | APIResult>{
         try {
-            return this.noticiaModel.find({"section.name": section})
+            return await this.noticiaModel.find({"section.name": section})
         } catch (e) {
             return {
                 status: e
