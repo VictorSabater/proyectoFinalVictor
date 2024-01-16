@@ -1,0 +1,24 @@
+[
+  {
+    "nombre": "Inicio",
+    "ruta": "/inicio",
+    "icono": "home"
+  },
+  {
+  "nombre": "Actualidad",
+  "ruta": "/incio",
+  "icono": "american-football"
+  },
+
+  {
+    "nombre": "Deportes",
+    "ruta": "/inicio",
+    "icono": "football"
+  },
+
+  {
+    "nombre": "Tecnologia",
+    "ruta": "/inicio",
+    "icono": "logo-apple-appstore"
+  }
+]

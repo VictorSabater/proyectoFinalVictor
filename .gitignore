@@ -1,0 +1,109 @@
+# compiled output
+backend/backend-nestjs/dist
+backend/backend-nestjs/node_modules
+# compiled output
+backend/dist
+backend/node_modules
+
+# Logs
+backend/backend-nestjs/logs
+backend/backend-nestjs/*.log
+backend/backend-nestjs/npm-debug.log*
+backend/backend-nestjs/pnpm-debug.log*
+backend/backend-nestjs/yarn-debug.log*
+backend/backend-nestjs/yarn-error.log*
+backend/backend-nestjs/lerna-debug.log*
+
+# OS
+backend/backend-nestjs/.DS_Store
+
+# Tests
+backend/backend-nestjs/coverage
+backend/backend-nestjs/.nyc_output
+
+# IDEs and editors
+backend/backend-nestjs/.idea
+backend/backend-nestjs/.project
+backend/backend-nestjs/.classpath
+backend/backend-nestjs/.c9/
+backend/backend-nestjs/*.launch
+backend/backend-nestjs/.settings/
+backend/backend-nestjs/*.sublime-workspace
+
+# IDE - VSCode
+backend/backend-nestjs/.vscode/*
+backend/backend-nestjs/!.vscode/settings.json
+backend/backend-nestjs/!.vscode/tasks.json
+backend/backend-nestjs/!.vscode/launch.json
+backend/backend-nestjs/!.vscode/extensions.json
+
+
+# IONIC
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+ionic/frontendI/*~
+ionic/frontendI/*.sw[mnpcod]
+ionic/frontendI/.tmp
+ionic/frontendI/*.tmp
+ionic/frontendI/*.tmp.*
+ionic/frontendI/UserInterfaceState.xcuserstate
+ionic/frontendI/$RECYCLE.BIN/
+
+ionic/frontendI/*.log
+ionic/frontendI/log.txt
+
+
+/.sourcemaps
+/.versions
+/coverage
+
+# Ionic
+/.ionic
+/www
+/platforms
+/plugins
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+ionic/frontendI/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+
+# Miscellaneous
+/.angular
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db

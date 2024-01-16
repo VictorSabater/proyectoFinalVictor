@@ -1,0 +1,22 @@
+<ion-menu side="end" menuId="categoriasMenu" contentId="principal">
+  <ion-header>
+    <ion-toolbar>
+      <ion-avatar class="ion-margin">
+        <ion-img src="assets/shapes.svg"></ion-img>
+      </ion-avatar>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-list>
+      <ion-menu-toggle *ngFor="let c of componentes">
+        <ion-item [routerLink]="c.ruta">
+          <ion-icon slot="start" [name]="c.icono"></ion-icon>
+          <ion-label>
+            {{ c.nombre }}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
