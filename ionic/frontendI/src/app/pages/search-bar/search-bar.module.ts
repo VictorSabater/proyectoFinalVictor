@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IndividualPageRoutingModule } from './individual-routing.module';
+import { SearchBarPageRoutingModule } from './search-bar-routing.module';
 
-import { IndividualPage } from './individual.page';
+import { SearchBarPage } from './search-bar.page';
 import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
@@ -14,10 +14,10 @@ import {ComponentsModule} from "../../components/components.module";
         CommonModule,
         FormsModule,
         IonicModule,
-        IndividualPageRoutingModule,
-        ComponentsModule,
+        SearchBarPageRoutingModule,
+        ComponentsModule
     ],
-  declarations: [IndividualPage],
+  declarations: [SearchBarPage],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IndividualPageModule {}
+export class SearchBarPageModule {}

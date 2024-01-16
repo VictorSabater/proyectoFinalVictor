@@ -9,11 +9,20 @@
   <ion-content>
 
     <ion-list>
-      <ion-menu-toggle *ngFor="let c of componentes">
-        <ion-item [routerLink]="c.ruta">
-          <ion-icon slot="start" [name]="c.icono"></ion-icon>
+      <ion-menu-toggle>
+        <ion-item routerLink="/inicio">
+          <ion-icon slot="start" name="home"></ion-icon>
           <ion-label>
-            {{ c.nombre }}
+            Inicio
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle *ngFor="let c of componentes">
+        <ion-item [routerLink]="c.route">
+          <ion-icon slot="start" [name]="c.icon"></ion-icon>
+          <ion-label>
+            {{ c.name }}
           </ion-label>
         </ion-item>
       </ion-menu-toggle>

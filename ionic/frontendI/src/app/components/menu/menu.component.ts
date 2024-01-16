@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Componente} from "../../common/menu";
 import {DataService} from "../../services/data.service";
+import {NoticiaService} from "../../services/noticia.service";
+import {Section} from "../../common/noticia";
 
 
 @Component({
@@ -9,19 +10,21 @@ import {DataService} from "../../services/data.service";
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent  implements OnInit {
-  componentes: Componente[]  = [];
+  componentes: Section[]  = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private noticiaService: NoticiaService) { }
 
   ngOnInit() {
     this.cargarComponentes();
   }
 
   private cargarComponentes() {
-    this.dataService.getComponentes().subscribe(
-      data => {
-        this.componentes = data;
+    this.noticiaService.getSections().subscribe(
+      {
+        next: value => {
+          this.componentes = value;
+        }
       }
-    );
+    )
   }
 }

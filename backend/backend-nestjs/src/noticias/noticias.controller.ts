@@ -16,12 +16,12 @@ export class NoticiasController {
 
 
     @Get('')
-    async getMovies(){
+    async getNoticias(){
         return this.noticiaService.getNoticias();
     }
 
     @Get('noticia/:id')
-    async getMovie(@Param('id')id:string){
+    async getNoticia(@Param('id')id:string){
         return this.noticiaService.getNotcia(id);
     }
 

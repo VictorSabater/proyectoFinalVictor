@@ -7,11 +7,12 @@ export interface NoticiaNest{
     content: string;
     images: string[];
     comment: string[];
-    section: Section;
+    section: SectionNest;
 }
 
 
-export interface Section{
+export interface SectionNest{
     name: string
     icon:string
+    route: string
 }

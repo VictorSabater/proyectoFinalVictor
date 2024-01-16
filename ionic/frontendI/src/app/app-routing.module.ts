@@ -15,7 +15,20 @@ const routes: Routes = [
   {
     path: 'individual/:id',
     loadChildren: () => import('./pages/individual/individual.module').then( m => m.IndividualPageModule)
+  },
+  {
+    path: 'search-bar',
+    loadChildren: () => import('./pages/search-bar/search-bar.module').then( m => m.SearchBarPageModule)
+  },
+  {
+    path: 'secciones/:seccion',
+    loadChildren: () => import('./pages/secciones/secciones.module').then( m => m.SeccionesPageModule)
+  },  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   }
+
+
 
 
 ];

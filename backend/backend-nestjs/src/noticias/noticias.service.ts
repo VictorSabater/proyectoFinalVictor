@@ -93,7 +93,7 @@ export class NoticiasService {
 
     async getSections(): Promise<NoticiaNest[] | APIResult> {
         try {
-            return await this.noticiaModel.find().distinct('section.name')
+            return await this.noticiaModel.find().distinct('section')
         } catch (e) {
             return {
                 status: e

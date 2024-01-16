@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-searchbar placeholder="Busca por titulo o autor" animated="true" (ionInput)="buscar($event)"></ion-searchbar>
+
+  <ion-card *ngFor="let noticia of noticias" [routerLink]="'/individual/' + noticia._id">
+    <swiper-container pagination="true">
+      <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
+        <img [src]="imagen" class="slide-image" alt="Imagen">
+      </swiper-slide>
+    </swiper-container>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-title>
+      {{noticia.title}}
+    </ion-card-title>
+    <ion-card-subtitle>
+      {{noticia.author}}
+    </ion-card-subtitle>
+  </ion-card>
+</ion-content>
