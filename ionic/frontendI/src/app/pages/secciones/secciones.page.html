@@ -1,6 +1,11 @@
 <app-header></app-header>
 
+<ion-toolbar>
+  <app-tabs></app-tabs>
+</ion-toolbar>
 <ion-content [fullscreen]="true" class="ion-padding">
+
+
   <ion-card *ngFor="let noticia of noticias" [routerLink]="'/individual/' + noticia._id">
     <swiper-container pagination="true">
       <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
