@@ -51,8 +51,28 @@
 
       </ion-grid>
 
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="secondary">AÑADIR COMENTARIO</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </ion-card-content>
 
+  </ion-card>
+
+
+  <ion-card  *ngFor="let comentario of noticia.comments">
+    <!--COMENTARIOS DE LOS USUARIOS-->
+   <ion-card-header>
+     <ion-card-title>{{comentario.name}}</ion-card-title>
+     <ion-card-subtitle>{{comentario.email}}</ion-card-subtitle>
+   </ion-card-header>
+    <ion-card-content>
+      <ion-label>{{comentario.comment}}</ion-label>
+    </ion-card-content>
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

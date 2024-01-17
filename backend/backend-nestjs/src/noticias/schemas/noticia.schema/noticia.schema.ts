@@ -14,7 +14,13 @@ export const NoticiaSchema: Schema =
             date: {type: String, required: true},
             content: {type: String, required: true},
             images: [{type: String, required: true}],
-            comments: [{type: String, required: false}]
+            comments: [
+                {
+                    name: {type: String, required: true},
+                    email: {type: String, required: true},
+                    comment: {type: String, required: false}
+                }
+            ]
 
         }, {versionKey: false}
     )
