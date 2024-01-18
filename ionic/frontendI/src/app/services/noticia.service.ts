@@ -30,4 +30,8 @@ export class NoticiaService {
   getBySections(seccion: string| null):Observable<APINoticia[]>{
     return this.http.get<APINoticia[]>(this.URI + "section/"+seccion)
   }
+
+  updateComments(id: string | null, noticiaDto: APINoticia): Observable<APINoticia> {
+    return this.http.patch<APINoticia>(this.URI + id, noticiaDto);
+  }
 }

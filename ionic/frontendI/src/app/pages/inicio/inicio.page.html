@@ -10,7 +10,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card *ngFor="let noticias of noticia" [routerLink]="'/individual/' + noticias._id">
+
+  <ion-card *ngFor="let noticias of longitudNoticias" [routerLink]="'/individual/' + noticias._id">
     <swiper-container pagination="true">
       <swiper-slide class="slide-full" *ngFor="let imagen of noticias.images">
         <img [src]="imagen" class="slide-image" alt="Imagen">
@@ -25,6 +26,15 @@
       </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
+
+
+  <ion-infinite-scroll threshold="150px"
+                       (ionInfinite)="loadData($event)" *ngIf="posicion < data.length">
+    <ion-infinite-scroll-content
+      loadingSpinner="crescent"
+      loadingText="Cargando 5 más...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="secondary" routerLink="/search-bar">

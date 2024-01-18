@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../../services/data.service";
 import {NoticiaService} from "../../services/noticia.service";
 import {Section} from "../../common/noticia";
 
@@ -11,6 +10,7 @@ import {Section} from "../../common/noticia";
 })
 export class MenuComponent  implements OnInit {
   componentes: Section[]  = [];
+  longitudNoticias: any[] = Array(5);
 
   constructor(private noticiaService: NoticiaService) { }
 

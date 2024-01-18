@@ -12,11 +12,15 @@ export class SeccionesPage implements OnInit {
   seccion!: string|null;
   noticias: APINoticia[] = []
 
+  longitudNoticias: APINoticia[] = [];
+  posicion!: number;
+
   constructor(private noticiaService: NoticiaService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.seccion = this.activatedRoute.snapshot.params['seccion']
     this.loadSecciones();
+    this.posicion = 0;
   }
 
   private loadSecciones() {
@@ -24,8 +28,32 @@ export class SeccionesPage implements OnInit {
       {
         next: value => {
           this.noticias = value;
+
+          this.longitudNoticias = this.noticias.slice(this.posicion,(this.posicion + 5));
+          this.posicion += 5;
+          console.log(this.longitudNoticias)
+          console.log(this.noticias)
+          console.log(this.posicion)
+          if (this.posicion >= this.noticias.length){
+            this.posicion = this.noticias.length ;
+          }
         }
       }
     )
+  }
+
+  loadData(event: any) {
+    if (this.posicion < this.noticias.length) {
+      console.log('Cargando siguientes ...');
+      setTimeout(() => {
+        let nuevoArr = this.noticias.slice(this.posicion, this.posicion + 5);
+        this.posicion += 5;
+        if (this.posicion >= this.noticias.length) {
+          this.posicion = this.noticias.length;
+        }
+        this.longitudNoticias.push(...nuevoArr);
+        event.target.complete();
+      }, 1000);
+    }
   }
 }
