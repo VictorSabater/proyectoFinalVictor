@@ -62,7 +62,7 @@ export class IndividualPage implements OnInit {
       message,
       duration: 1500,
       color: 'success',
-      position: "top"
+      position: "bottom"
     });
     await toast.present();
   }
