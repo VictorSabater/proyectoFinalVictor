@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-2 justify-content-center rounded-5">
+    <div class="col-md-3 my-3 m-5" *ngFor="let noticia of noticias ">
+      <div class="card border-light rounded-top">
+        <div class="card-header bg-success">
+          {{noticia.title}}
+        </div>
+
+        <div class="card-img" *ngFor="let noticiasImg of noticia.images">
+
+          <img [src]="noticiasImg">
+        </div>
+
+        <div class="card-body">
+          {{noticia.subtitle}}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
