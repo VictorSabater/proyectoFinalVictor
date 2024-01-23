@@ -1,15 +1,15 @@
 
 export interface APINoticia {
   section: Section
-  _id: string
+  _id?: string
   title: string
   subtitle: string
   author: string
   date: string
   content: string
   images: string[]
-  comments: Comments[]
-  __v: number
+  comments?: Comments[]
+  __v?: number
 }
 
 export interface Section {

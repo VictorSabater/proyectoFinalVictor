@@ -8,12 +8,26 @@ import {APINoticia} from "../../common/noticia";
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent  implements OnInit{
-noticias: APINoticia[] = []
+export class PrincipalComponent implements OnInit {
+  noticias: APINoticia[] = []
+  noticiaDelete: APINoticia = {
+    _id: '',
+    title: '',
+    subtitle: '',
+    content: '',
+    images: [],
+    author: '',
+    date: '',
+    section: {
+      name: '',
+      route: '',
+      icon: ''
+    }
+  };
 
 
-constructor(private noticiaService: NoticiaService) {
-}
+  constructor(private noticiaService: NoticiaService) {
+  }
 
   ngOnInit(): void {
     this.loadNoticia();
@@ -35,6 +49,14 @@ constructor(private noticiaService: NoticiaService) {
     );
 
 
+  }
+
+  deleteNoticia(noticia: APINoticia) {
+    if (noticia._id) this.noticiaService.deleteNoticia(noticia._id).subscribe(
+      (data: any)=> {
+        this.loadNoticia();
+      }
+    )
   }
 
 }

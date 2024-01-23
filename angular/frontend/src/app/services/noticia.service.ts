@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {APINoticia, Section} from "../common/noticia";
+import {APINoticia} from "../common/noticia";
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +23,13 @@ export class NoticiaService {
     return this.http.get<APINoticia[]>(this.URI + 'title/' + name);
   }
 
-  getSections():Observable<Section[]>{
-    return this.http.get<Section[]>(this.URI + "sections");
+  postNoticia(subirNoticia: APINoticia): Observable<any>{
+    return this.http.post(this.URI,subirNoticia);
   }
 
-  getBySections(seccion: string| null):Observable<APINoticia[]>{
-    return this.http.get<APINoticia[]>(this.URI + "section/"+seccion)
+  deleteNoticia(id: string): Observable<any>{
+    return this.http.delete(this.URI + id)
   }
-
 
 
 }

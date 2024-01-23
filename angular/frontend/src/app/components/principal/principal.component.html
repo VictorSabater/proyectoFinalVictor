@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-2 justify-content-center rounded-5">
-    <div class="col-md-5 my-5 m-5" *ngFor="let noticia of noticias ">
+    <div class="col-md-3 my-4 m-5" *ngFor="let noticia of noticias ">
       <div class="card border-light rounded-3 bg-primary-subtle">
         <div class="card-img rounded-3 ">
           <swiper-container pagination="true">
@@ -12,7 +12,7 @@
 
         <div class="card-header ">
           <div class="card-title">
-            {{noticia.title}}
+           <h3> {{noticia.title}}</h3>
             <br>
           </div>
 
@@ -30,8 +30,48 @@
         </div>
 
         <div class="card-footer">
-          {{noticia.author}} -
-          {{noticia.date}}
+          <div class="row-cols-auto">
+            {{noticia.author}} -
+            {{noticia.date}}
+          </div>
+          <div class="row-cols-2 p-1 ">
+            <button class="btn btn-outline-dark bg-warning"  [routerLink]="'/principal/edit/'+noticia._id"  type="submit">Editar</button>
+            <button class="btn btn-outline-dark bg-danger" data-bs-toggle="modal" (click)="noticiaDelete=noticia"
+                    data-bs-target="#deleteModal">
+              <i class=" text-white">Borrar</i>
+            </button>
+            <div class="modal fade" id="deleteModal"
+                 tabindex="-1" aria-labelledby="deleteModalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5"
+                        id="deleteModalLabel">
+                      Delete Noticia</h1>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ¿Quieres borrar {{noticiaDelete.title}}?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                            (click)="deleteNoticia(noticiaDelete)">Borrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
         </div>
 
       </div>

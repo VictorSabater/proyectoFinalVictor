@@ -5,17 +5,16 @@
 
 .card-header{
   text-align: center;
-  font-style: oblique;
 }
 
 .card{
   text-align: center;
   border-radius: 10px;
   margin-bottom: 40px;
+  border-color: #0d0d0d;
 }
 
 .card-title{
-  font-size: 20px;
-  font-style: oblique;
+
 }
 

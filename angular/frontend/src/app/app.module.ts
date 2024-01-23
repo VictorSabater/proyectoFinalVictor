@@ -8,19 +8,24 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {HttpClientModule} from "@angular/common/http";
 import { register } from 'swiper/element/bundle';
 import {NgForOf} from "@angular/common";
+import { NoticiaEditComponent } from './components/noticia-edit/noticia-edit.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 register();
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoticiaEditComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgForOf
+    NgForOf,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
