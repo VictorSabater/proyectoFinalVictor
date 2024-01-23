@@ -33,6 +33,8 @@ constructor(private noticiaService: NoticiaService) {
         }
       }
     );
+
+
   }
 
 }

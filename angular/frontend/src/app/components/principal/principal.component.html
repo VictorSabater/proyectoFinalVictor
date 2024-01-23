@@ -1,19 +1,39 @@
 <div class="container">
   <div class="row mt-2 justify-content-center rounded-5">
-    <div class="col-md-3 my-3 m-5" *ngFor="let noticia of noticias ">
-      <div class="card border-light rounded-top">
-        <div class="card-header bg-success">
-          {{noticia.title}}
+    <div class="col-md-5 my-5 m-5" *ngFor="let noticia of noticias ">
+      <div class="card border-light rounded-3 bg-primary-subtle">
+        <div class="card-img rounded-3 ">
+          <swiper-container pagination="true">
+            <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
+              <img [src]="imagen" class="slide-image" alt="Imagen">
+            </swiper-slide>
+          </swiper-container>
         </div>
 
-        <div class="card-img" *ngFor="let noticiasImg of noticia.images">
+        <div class="card-header ">
+          <div class="card-title">
+            {{noticia.title}}
+            <br>
+          </div>
 
-          <img [src]="noticiasImg">
+          <div class="card-subtitle">
+            {{noticia.subtitle}}
+          </div>
         </div>
 
         <div class="card-body">
-          {{noticia.subtitle}}
+            <div class="row">
+              <div class="col">
+                <p>{{noticia.section.name}}</p>
+              </div>
+            </div>
         </div>
+
+        <div class="card-footer">
+          {{noticia.author}} -
+          {{noticia.date}}
+        </div>
+
       </div>
     </div>
 

@@ -1,4 +1,21 @@
-.card-img{
-  height: 200px;
+.slide-image{
+  height: 280px;
   width: 400px;
 }
+
+.card-header{
+  text-align: center;
+  font-style: oblique;
+}
+
+.card{
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.card-title{
+  font-size: 20px;
+  font-style: oblique;
+}
+
