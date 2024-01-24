@@ -35,10 +35,10 @@
             {{noticia.date}}
           </div>
           <div class="row-cols-2 p-1 ">
-            <button class="btn btn-outline-dark bg-warning"  [routerLink]="'/principal/edit/'+noticia._id"  type="submit">Editar</button>
-            <button class="btn btn-outline-dark bg-danger" data-bs-toggle="modal" (click)="noticiaDelete=noticia"
+            <button class="btn btn-outline-dark bg-secondary col-xs-2 margin-left"  [routerLink]="'/principal/edit/'+noticia._id"  type="submit">Editar </button>
+            <button class="btn btn-outline-dark bg-danger col-xs-2 margin-left" data-bs-toggle="modal" (click)="noticiaDelete=noticia"
                     data-bs-target="#deleteModal">
-              <i class=" text-white">Borrar</i>
+             Borrar
             </button>
             <div class="modal fade" id="deleteModal"
                  tabindex="-1" aria-labelledby="deleteModalLabel"
