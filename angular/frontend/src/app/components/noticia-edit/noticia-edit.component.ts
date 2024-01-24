@@ -45,9 +45,7 @@ export class NoticiaEditComponent implements OnInit{
     author: '',
     date: '',
     section: {
-      name: '',
-      route: '',
-      icon: ''
+      name: ''
     }
   }
   toast = {

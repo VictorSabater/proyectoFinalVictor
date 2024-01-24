@@ -7,7 +7,7 @@ export const NoticiaSchema: Schema =
             subtitle: {type: String, required: true},
             section: {
                 name: {type: String, required: true},
-                icon: {type: String, required: true},
+                icon: {type: String, required: false},
                 route: {type: String, required: false}
             },
             author: {type: String, required: true},

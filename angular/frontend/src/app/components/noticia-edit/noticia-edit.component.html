@@ -81,11 +81,54 @@
             </div>
           </div>
         </div>
+
+        <div class="form-floating mb-3">
+          <input formControlName="date" type="date" class="form-control"
+                 id="date" placeholder="date">
+          <label for="date">Date</label>
+          <div *ngIf="dateNoticia.invalid &&
+(dateNoticia.dirty || dateNoticia.touched)"
+               class="alert alert-warning" role="alert">
+            <div *ngIf="dateNoticia.errors.required || dateNoticia.errors['notOnlyWhiteSpace']">
+              Fecha es obligatorio
+            </div>
+            <div *ngIf="dateNoticia.errors['minlength']">
+              Mínimo 2 caracteres
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input formControlName="section" type="text" class="form-control"
+                 id="section" placeholder="section">
+          <label for="section">Section</label>
+          <div *ngIf="section.invalid &&
+(section.dirty || section.touched)"
+               class="alert alert-warning" role="alert">
+            <div *ngIf="section.errors.required || section.errors['notOnlyWhiteSpace']">
+            Seccionon es obligatorio
+          </div>
+          <div *ngIf="section.errors['minlength']">
+            Mínimo 2 caracteres
+          </div>
+        </div>
+    </div>
+
+
+
+
+
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-success"
                   [disabled]="noticiaForm.invalid"
                   (click)="edit?editNoticia(): addNoticia()">Añadir Noticia</button>
         </div>
+
+
+
+
+
+
       </form>
     </div>
     <div class="col-md-3">
