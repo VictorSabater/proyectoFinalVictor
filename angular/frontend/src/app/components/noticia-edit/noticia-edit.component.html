@@ -8,13 +8,13 @@
         <div class="form-floating mb-3">
           <input formControlName="title" type="text" class="form-control"
                  id="title" placeholder="title">
-          <label for="title">Title</label>
+          <label for="title">Titulo</label>
           <div *ngIf="title.invalid && (title.dirty || title.touched)"
                class="alert alert-warning" role="alert">
-            <div *ngIf="title.errors.required || title.errors.notOnlyWhitespace">
-              Title es obligatorio
+            <div *ngIf="title.errors.required || title.errors['notOnlyWhitespace']">
+              Titulo es obligatorio
             </div>
-            <div *ngIf="title.errors.minlength">
+            <div *ngIf="title.errors['minlength']">
               Mínimo 2 caracteres
             </div>
           </div>
@@ -22,14 +22,14 @@
         <div class="form-floating mb-3">
           <input formControlName="subtitle" type="text" class="form-control"
                  id="subtitle" placeholder="subtitle">
-          <label for="subtitle">Subtitle</label>
+          <label for="subtitle">Subitulo</label>
           <div *ngIf="subtitle.invalid &&
 (subtitle.dirty || subtitle.touched)"
                class="alert alert-warning" role="alert">
-            <div *ngIf="subtitle.errors.required || subtitle.errors.notOnlyWhiteSpace">
-              Subtitle es obligatorio
+            <div *ngIf="subtitle.errors.required || subtitle.errors['notOnlyWhiteSpace']">
+              Subitulo es obligatorio
             </div>
-            <div *ngIf="subtitle.errors.minlength">
+            <div *ngIf="subtitle.errors['minlength']">
               Mínimo 2 caracteres
             </div>
           </div>
@@ -38,14 +38,14 @@
           <input formControlName="content" type="text"
                  class="form-control" id="content"
                  placeholder="content">
-          <label for="content">Content</label>
+          <label for="content">Contenido</label>
           <div *ngIf="content.invalid &&
 (content.dirty || content.touched)"
                class="alert alert-warning" role="alert">
-            <div *ngIf="content.errors.required || content.errors.notOnlyWhiteSpace">
-              Content es obligatorio
+            <div *ngIf="content.errors.required || content.errors['notOnlyWhiteSpace']">
+              Contenido es obligatorio
             </div>
-            <div *ngIf="content.errors.minlength">
+            <div *ngIf="content.errors['minlength']">
               Mínimo 2 caracteres
             </div>
           </div>
@@ -54,14 +54,14 @@
           <input formControlName="author" type="text"
                  class="form-control" id="author"
                  placeholder="author">
-          <label for="author">Author</label>
+          <label for="author">Autor</label>
           <div *ngIf="author.invalid &&
 (author.dirty || author.touched)"
                class="alert alert-warning" role="alert">
-            <div *ngIf="author.errors.required || author.errors.notOnlyWhiteSpace">
-              Author es obligatorio
+            <div *ngIf="author.errors.required || author.errors['notOnlyWhiteSpace']">
+              Autor es obligatorio
             </div>
-            <div *ngIf="author.errors.minlength">
+            <div *ngIf="author.errors['minlength']">
               Mínimo 2 caracteres
             </div>
           </div>
@@ -69,14 +69,14 @@
         <div class="form-floating mb-3">
           <input formControlName="images" type="text" class="form-control"
                  id="images" placeholder="images">
-          <label for="images">Images</label>
+          <label for="images">Imagenes</label>
           <div *ngIf="images.invalid &&
 (images.dirty || images.touched)"
                class="alert alert-warning" role="alert">
-            <div *ngIf="images.errors.required || images.errors.notOnlyWhiteSpace">
+            <div *ngIf="images.errors.required || images.errors['notOnlyWhiteSpace']">
               Images es obligatorio
             </div>
-            <div *ngIf="images.errors.minlength">
+            <div *ngIf="images.errors['minlength']">
               Mínimo 2 caracteres
             </div>
           </div>
