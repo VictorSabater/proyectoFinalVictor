@@ -4,7 +4,7 @@
       <h2>Añadir una noticia</h2>
     </div>
     <div class="col-md-4 offset-md-2">
-      <ng-form [formGroup]="noticiaForm" (ngSubmit)="addNoticia()">
+      <form [formGroup]="noticiaForm" (ngSubmit)="addNoticia()">
         <div class="form-floating mb-3">
           <input formControlName="title" type="text" class="form-control"
                  id="title" placeholder="title">
@@ -86,7 +86,7 @@
                   [disabled]="noticiaForm.invalid"
                   (click)="edit?editNoticia(): addNoticia()">Añadir Noticia</button>
         </div>
-      </ng-form>
+      </form>
     </div>
     <div class="col-md-3">
       <div class="card">
