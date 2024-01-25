@@ -13,7 +13,7 @@ import {APINoticia} from "../../common/noticia";
 })
 export class NoticiaEditComponent implements OnInit{
   noticiaForm: FormGroup = this.formBuilder.group({
-    id: [''],
+    _id: [''],
     title: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
@@ -32,9 +32,15 @@ export class NoticiaEditComponent implements OnInit{
     date: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    section: ['', [Validators.minLength(2),
-      Validators.maxLength(255), Validators.required,
-      FormValidators.notOnlyWhiteSpace]]
+    section: this.formBuilder.group({
+      name: ['', [Validators.minLength(2),
+        Validators.maxLength(255), Validators.required,
+        FormValidators.notOnlyWhiteSpace]],
+
+      icon: ['', [Validators.minLength(2),
+        Validators.maxLength(255), Validators.required,
+        FormValidators.notOnlyWhiteSpace]]
+    })
   });
 
   noticiaAnyadir: APINoticia = {
@@ -86,6 +92,14 @@ export class NoticiaEditComponent implements OnInit{
     return this.noticiaForm.get('section');
   }
 
+  get name(): any{
+    return this.noticiaForm.get('section.name')
+  }
+
+  get icon(): any{
+    return this.noticiaForm.get('section.icon')
+  }
+
   addNoticia(){
     console.log(this.noticiaForm.invalid)
     if(this.noticiaForm.invalid){
@@ -97,6 +111,7 @@ export class NoticiaEditComponent implements OnInit{
     delete this.noticiaAnyadir._id;
     this.noticiaService.postNoticia(this.noticiaAnyadir).subscribe(
       (data: any) => {
+        console.log(data)
         this.toastGenerator(data);
         this.router.navigateByUrl('/principal');
       }
@@ -114,4 +129,6 @@ export class NoticiaEditComponent implements OnInit{
   editNoticia() {
 
   }
+
+  protected readonly Date = Date;
 }
