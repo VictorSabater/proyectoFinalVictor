@@ -18,6 +18,15 @@
           <div class="card-subtitle">
             {{noticia.subtitle}}
           </div>
+
+          <mat-expansion-panel hideToggle class="bg-secondary-subtle">
+            <mat-expansion-panel-header class="text-center">
+              <mat-panel-title>
+               Contenido
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            {{noticia.content}}
+          </mat-expansion-panel>
         </div>
 
         <div class="card-body">
@@ -26,6 +35,7 @@
                 <p>{{noticia.section.name}}</p>
               </div>
             </div>
+
         </div>
 
         <div class="card-footer">

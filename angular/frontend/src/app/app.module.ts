@@ -10,6 +10,8 @@ import { register } from 'swiper/element/bundle';
 import {NgForOf} from "@angular/common";
 import { NoticiaEditComponent } from './components/noticia-edit/noticia-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from "@angular/material/expansion";
 register();
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ register();
     HttpClientModule,
     NgForOf,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
