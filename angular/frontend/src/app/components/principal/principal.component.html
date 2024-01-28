@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-2 justify-content-center rounded-5">
     <div class="col-md-3 my-4 m-5" *ngFor="let noticia of noticias ">
-      <div class="card border-light  bg-primary-subtle">
+      <div class="card border-light  bg-dark-subtle">
         <div class="card-header ">
           <div class="card-img border-3">
             <swiper-container pagination="true">
@@ -19,8 +19,8 @@
             {{noticia.subtitle}}
           </div>
 
-          <mat-expansion-panel hideToggle class="bg-secondary-subtle text-center">
-            <mat-expansion-panel-header class="text-center">
+          <mat-expansion-panel hideToggle class="bg-secondary-subtle text-center m3">
+            <mat-expansion-panel-header class="text-center bg-warning btn-outline-dark  ">
               <mat-panel-title class="text-center">
                 CONTENIDO - PULSE AQUÍ
               </mat-panel-title>
@@ -39,7 +39,7 @@
             <div class="likes">
               <!--INNOVACION 2-->
               <mat-chip-listbox aria-label="Seleccion de likes">
-                <mat-chip-option color="accent">Me gusta</mat-chip-option>
+                <mat-chip-option color="accent" >Me gusta</mat-chip-option>
                 <mat-chip-option color="primary">No me gusta</mat-chip-option>
               </mat-chip-listbox>
             </div>
