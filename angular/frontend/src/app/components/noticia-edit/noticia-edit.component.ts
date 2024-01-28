@@ -7,6 +7,7 @@ import {APINoticia} from "../../common/noticia";
 
 
 
+
 @Component({
   selector: 'app-noticia-edit',
   templateUrl: './noticia-edit.component.html',
@@ -117,6 +118,7 @@ export class NoticiaEditComponent implements OnInit{
       (data: any) => {
         console.log(data)
         this.toastGenerator(data);
+        this.toastShow = true
 
         this.router.navigateByUrl('/principal');
       }
