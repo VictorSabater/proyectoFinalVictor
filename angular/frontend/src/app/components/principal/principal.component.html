@@ -4,14 +4,14 @@
       <div class="card border-light  bg-primary-subtle">
         <div class="card-header ">
           <div class="card-img border-3">
-          <swiper-container pagination="true">
-            <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
-              <img [src]="imagen" class="slide-image" alt="Imagen">
-            </swiper-slide>
-          </swiper-container>
-        </div>
+            <swiper-container pagination="true">
+              <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
+                <img [src]="imagen" class="slide-image" alt="Imagen">
+              </swiper-slide>
+            </swiper-container>
+          </div>
           <div class="card-title">
-           <h3> {{noticia.title}}</h3>
+            <h3> {{noticia.title}}</h3>
             <br>
           </div>
 
@@ -22,7 +22,7 @@
           <mat-expansion-panel hideToggle class="bg-secondary-subtle text-center">
             <mat-expansion-panel-header class="text-center">
               <mat-panel-title class="text-center">
-               CONTENIDO - PULSE AQUÍ
+                CONTENIDO - PULSE AQUÍ
               </mat-panel-title>
             </mat-expansion-panel-header>
             {{noticia.content}}
@@ -30,11 +30,21 @@
         </div>
 
         <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <p>{{noticia.section.name}}</p>
-              </div>
+
+
+            <div class="row-cols-auto">
+              <p>{{noticia.section.name}}</p>
+          </div>
+          <div class="col">
+            <div class="likes">
+              <!--INNOVACION 2-->
+              <mat-chip-listbox aria-label="Seleccion de likes">
+                <mat-chip-option color="accent">Me gusta</mat-chip-option>
+                <mat-chip-option color="primary">No me gusta</mat-chip-option>
+              </mat-chip-listbox>
             </div>
+
+          </div>
 
         </div>
 
@@ -44,10 +54,13 @@
             {{noticia.date}}
           </div>
           <div class="row-cols-2 p-1 ">
-            <button class="btn btn-outline-dark bg-secondary col-xs-2 margin-left"  [routerLink]="'/principal/edit/'+noticia._id"  type="submit">Editar </button>
-            <button class="btn btn-outline-dark bg-danger col-xs-2 margin-left" data-bs-toggle="modal" (click)="noticiaDelete=noticia"
+            <button class="btn btn-outline-dark bg-secondary col-xs-2 margin-left"
+                    [routerLink]="'/principal/edit/'+noticia._id" type="submit">Editar
+            </button>
+            <button class="btn btn-outline-dark bg-danger col-xs-2 margin-left" data-bs-toggle="modal"
+                    (click)="noticiaDelete=noticia"
                     data-bs-target="#deleteModal">
-             Borrar
+              Borrar
             </button>
             <div class="modal fade" id="deleteModal"
                  tabindex="-1" aria-labelledby="deleteModalLabel"
@@ -57,7 +70,7 @@
                   <div class="modal-header">
                     <h1 class="modal-title fs-5"
                         id="deleteModalLabel">
-                      Delete Noticia</h1>
+                      Borrar Noticia</h1>
                     <button type="button" class="btn-close"
                             data-bs-dismiss="modal"
                             aria-label="Close"></button>
@@ -67,16 +80,16 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Cancelar</button>
+                            data-bs-dismiss="modal">Cancelar
+                    </button>
                     <button type="button" class="btn btn-danger"
                             data-bs-dismiss="modal"
-                            (click)="deleteNoticia(noticiaDelete)">Borrar</button>
+                            (click)="deleteNoticia(noticiaDelete)">Borrar
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-
-
 
 
           </div>

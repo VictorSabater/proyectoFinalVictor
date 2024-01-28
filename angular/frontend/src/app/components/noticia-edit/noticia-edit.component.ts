@@ -6,12 +6,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {APINoticia} from "../../common/noticia";
 
 
+
 @Component({
   selector: 'app-noticia-edit',
   templateUrl: './noticia-edit.component.html',
   styleUrls: ['./noticia-edit.component.css']
 })
 export class NoticiaEditComponent implements OnInit{
+
+
   noticiaForm: FormGroup = this.formBuilder.group({
     _id: [''],
     title: ['', [Validators.minLength(2),
@@ -100,6 +103,7 @@ export class NoticiaEditComponent implements OnInit{
     return this.noticiaForm.get('section.icon')
   }
 
+
   addNoticia(){
     console.log(this.noticiaForm.invalid)
     if(this.noticiaForm.invalid){
@@ -113,6 +117,7 @@ export class NoticiaEditComponent implements OnInit{
       (data: any) => {
         console.log(data)
         this.toastGenerator(data);
+
         this.router.navigateByUrl('/principal');
       }
     )

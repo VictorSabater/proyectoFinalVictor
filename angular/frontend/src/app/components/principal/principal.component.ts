@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NoticiaService} from "../../services/noticia.service";
 import {APINoticia} from "../../common/noticia";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @Component({

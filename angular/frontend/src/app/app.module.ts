@@ -11,7 +11,11 @@ import {NgForOf} from "@angular/common";
 import { NoticiaEditComponent } from './components/noticia-edit/noticia-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+
 register();
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ register();
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatExpansionModule
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatChipsModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
