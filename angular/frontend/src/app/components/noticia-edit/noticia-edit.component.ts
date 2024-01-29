@@ -24,18 +24,13 @@ export class NoticiaEditComponent implements OnInit{
     subtitle: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    content: ['', [Validators.minLength(2),
-      Validators.maxLength(255), Validators.required,
+    content: ['', [Validators.minLength(2),Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    images: ['', [Validators.minLength(2),
-      Validators.maxLength(255), Validators.required,
-      FormValidators.notOnlyWhiteSpace]],
+    images: ['', [ Validators.required]],
     author: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    date: ['', [Validators.minLength(2),
-      Validators.maxLength(255), Validators.required,
-      FormValidators.notOnlyWhiteSpace]],
+    date: ['', Validators.required],
     section: this.formBuilder.group({
       name: ['', [Validators.minLength(2),
         Validators.maxLength(255), Validators.required,
@@ -43,7 +38,8 @@ export class NoticiaEditComponent implements OnInit{
 
       icon: ['', [Validators.minLength(2),
         Validators.maxLength(255), Validators.required,
-        FormValidators.notOnlyWhiteSpace]]
+        FormValidators.notOnlyWhiteSpace]],
+      route: []
     })
   });
 
@@ -58,6 +54,8 @@ export class NoticiaEditComponent implements OnInit{
       name: ''
     }
   }
+  id!: string | null
+
   toast = {
     header: '',
     body: '',
@@ -71,6 +69,18 @@ export class NoticiaEditComponent implements OnInit{
   }
 
   ngOnInit(): void {
+   this.id = this.activatedRoute.snapshot.params['id'];
+   if(this.id != null){
+     this.edit = true;
+   }else {
+     this.edit = false;
+   }
+
+
+   if (this.edit){
+     this.loadNoticia();
+   }
+
   }
 
   get title(): any{
@@ -106,7 +116,7 @@ export class NoticiaEditComponent implements OnInit{
 
 
   addNoticia(){
-    console.log(this.noticiaForm.invalid)
+    console.log(this.noticiaForm)
     if(this.noticiaForm.invalid){
       this.noticiaForm.markAllAsTouched();
       return;
@@ -134,7 +144,28 @@ export class NoticiaEditComponent implements OnInit{
   }
 
   editNoticia() {
+  if (this.noticiaForm.invalid){
+    this.noticiaForm.markAllAsTouched()
+    return;
+  }
+  this.noticiaAnyadir = this.noticiaForm.value;
+  delete this.noticiaAnyadir._id;
+  this.noticiaService.updateNoticia(this.noticiaAnyadir, this.id).subscribe(
+    (data: any) =>{
+      this.router.navigateByUrl('/principal');
+    }
 
+  )
+  }
+
+  loadNoticia(){
+    this.noticiaService.getNoticia(this.id).subscribe(
+      {
+        next: value => {
+          this.noticiaForm.setValue(value);
+        }
+      }
+    )
   }
 
   protected readonly Date = Date;

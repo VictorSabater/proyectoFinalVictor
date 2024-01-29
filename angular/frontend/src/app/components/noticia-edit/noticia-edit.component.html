@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-2 my-2">
-      <h2>Añadir una noticia</h2>
+      <h2 *ngIf="!edit">Añadir una noticia</h2>
+      <h2 *ngIf="edit">Editar una noticia</h2>
     </div>
     <div class="col-md-4 offset-md-2">
       <form [formGroup]="noticiaForm" >
         <div class="form-floating mb-3">
-          <input formControlName="title" type="text" class="form-control"
+          <input  formControlName="title" type="text" class="form-control"
                  id="title" placeholder="title">
+
           <label for="title">Titulo</label>
           <div *ngIf="title.invalid && (title.dirty || title.touched)"
                class="alert alert-warning" role="alert">
@@ -20,8 +22,9 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input formControlName="subtitle" type="text" class="form-control"
+          <input  formControlName="subtitle" type="text" class="form-control"
                  id="subtitle" placeholder="subtitle">
+
           <label for="subtitle">Subitulo</label>
           <div *ngIf="subtitle.invalid &&
 (subtitle.dirty || subtitle.touched)"
@@ -35,9 +38,10 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input formControlName="content" type="text"
+          <input  formControlName="content" type="text"
                  class="form-control" id="content"
                  placeholder="content">
+
           <label for="content">Contenido</label>
           <div *ngIf="content.invalid &&
 (content.dirty || content.touched)"
@@ -51,7 +55,7 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input formControlName="author" type="text"
+          <input  formControlName="author" type="text"
                  class="form-control" id="author"
                  placeholder="author">
           <label for="author">Autor</label>
@@ -67,8 +71,9 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input formControlName="images" type="text" class="form-control"
+          <input  formControlName="images" type="text" class="form-control"
                  id="images" placeholder="images">
+
           <label for="images">Imagenes</label>
           <div *ngIf="images.invalid &&
 (images.dirty || images.touched)"
@@ -83,9 +88,10 @@
         </div>
 
         <div class="form-floating mb-3">
-          <input formControlName="date" type="date" class="form-control"
+          <input  formControlName="date" type="date" class="form-control"
                  id="date" placeholder="date">
-          <label for="date">Date</label>
+
+          <label for="date">Fecha</label>
           <div *ngIf="dateNoticia.invalid &&
 (dateNoticia.dirty || dateNoticia.touched)"
                class="alert alert-warning" role="alert">
@@ -99,8 +105,9 @@
         </div>
         <div formGroupName="section">
           <div class="form-floating mb-3">
-            <input formControlName="name" type="text" class="form-control"
+            <input  formControlName="name" type="text" class="form-control"
                    id="name" placeholder="name">
+
             <label for="name">Seccion</label>
             <div *ngIf="name.invalid &&
 (name.dirty || name.touched)"

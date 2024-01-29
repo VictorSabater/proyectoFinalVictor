@@ -31,5 +31,9 @@ export class NoticiaService {
     return this.http.delete(this.URI + id)
   }
 
+  updateNoticia(noticia: APINoticia,id: string | null): Observable<any>{
+    return this.http.patch(this.URI + id,noticia);
+  }
+
 
 }
