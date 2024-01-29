@@ -17,6 +17,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 register();
 @NgModule({
@@ -40,7 +41,8 @@ register();
     MatChipsModule,
     MatIconModule,
     MatProgressBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FontAwesomeModule
 
   ],
   providers: [],

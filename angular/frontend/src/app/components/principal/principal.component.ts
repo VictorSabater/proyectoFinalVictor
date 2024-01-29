@@ -3,6 +3,14 @@ import {NoticiaService} from "../../services/noticia.service";
 import {APINoticia} from "../../common/noticia";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {
+  faBaseball, faBasketball,
+  faBookmark,
+  faDesktop,
+  faEarthAmericas,
+  faEarthEurope,
+  faFootball, faNewspaper
+} from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -63,4 +71,7 @@ export class PrincipalComponent implements OnInit {
   }
 
 
+  protected readonly faBasketball = faBasketball;
+  protected readonly faNewspaper = faNewspaper;
+  protected readonly faDesktop = faDesktop;
 }

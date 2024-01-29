@@ -5,9 +5,9 @@
       <h2 *ngIf="edit">Editar una noticia</h2>
     </div>
     <div class="col-md-4 offset-md-2">
-      <form [formGroup]="noticiaForm" >
+      <form [formGroup]="noticiaForm">
         <div class="form-floating mb-3">
-          <input  formControlName="title" type="text" class="form-control"
+          <input formControlName="title" type="text" class="form-control"
                  id="title" placeholder="title">
 
           <label for="title">Titulo</label>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input  formControlName="subtitle" type="text" class="form-control"
+          <input formControlName="subtitle" type="text" class="form-control"
                  id="subtitle" placeholder="subtitle">
 
           <label for="subtitle">Subitulo</label>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input  formControlName="content" type="text"
+          <input formControlName="content" type="text"
                  class="form-control" id="content"
                  placeholder="content">
 
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="form-floating mb-3">
-          <input  formControlName="author" type="text"
+          <input formControlName="author" type="text"
                  class="form-control" id="author"
                  placeholder="author">
           <label for="author">Autor</label>
@@ -70,16 +70,23 @@
             </div>
           </div>
         </div>
-        <div class="form-floating mb-3">
-          <input  formControlName="images" type="text" class="form-control"
-                 id="images" placeholder="images">
 
+
+        <!--IMAGENES CUANDO SE EDITA-->
+        <div *ngIf="edit" class="form-floating mb-3">
           <label for="images">Imagenes</label>
+          <select multiple formControlName="images" type="text" class="form-select"
+                 id="images" placeholder="images" aria-label="Imagenes">
+
+            <option *ngFor='let img of images' [value]="img">{{img}}</option>
+          </select>
+
+
           <div *ngIf="images.invalid &&
 (images.dirty || images.touched)"
                class="alert alert-warning" role="alert">
             <div *ngIf="images.errors.required || images.errors['notOnlyWhiteSpace']">
-              Images es obligatorio
+              Imagenes es obligatorio
             </div>
             <div *ngIf="images.errors['minlength']">
               Mínimo 2 caracteres
@@ -87,8 +94,55 @@
           </div>
         </div>
 
+        <!--IMAGENES CUNADO SE AÑADE Y NO SE EDIYA-->
+
+        <div *ngIf="!edit" class="form-floating mb-3">
+          <label for="imagesAdd">Imagenes</label>
+          <select multiple formControlName="images" type="text" class="form-select"
+                  id="imagesAdd" placeholder="images" aria-label="Imagenes">
+
+            <option *ngFor='let img of images' [value]="img">{{img}}</option>
+          </select>
+
+
+          <div *ngIf="images.invalid &&
+(images.dirty || images.touched)"
+               class="alert alert-warning" role="alert">
+            <div *ngIf="images.errors.required || images.errors['notOnlyWhiteSpace']">
+              Imagenes es obligatorio
+            </div>
+            <div *ngIf="images.errors['minlength']">
+              Mínimo 2 caracteres
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mt-3">
+          <div class="col-8">
+            <div [formGroup]="myNewImage" class="form-floating mb-3">
+              <input
+                type="text" class="form-control"
+                id="newImage"
+                formControlName="newImage"
+                placeholder="Nueva Imagen">
+              <label for="newImage">
+                Nueva Imagen</label>
+            </div>
+
+          </div>
+          <div class="col-4 pt-2">
+            <h3>
+              <fa-icon [icon]="faCirclePlus" (click)="addNewImages(newImage)"></fa-icon>
+            </h3>
+
+          </div>
+        </div>
+
+
+
         <div class="form-floating mb-3">
-          <input  formControlName="date" type="date" class="form-control"
+          <input formControlName="date" type="date" class="form-control"
                  id="date" placeholder="date">
 
           <label for="date">Fecha</label>
@@ -105,7 +159,7 @@
         </div>
         <div formGroupName="section">
           <div class="form-floating mb-3">
-            <input  formControlName="name" type="text" class="form-control"
+            <input formControlName="name" type="text" class="form-control"
                    id="name" placeholder="name">
 
             <label for="name">Seccion</label>
@@ -119,7 +173,7 @@
                 Mínimo 2 caracteres
               </div>
             </div>
-        </div>
+          </div>
 
           <div class="form-floating mb-3">
             <input formControlName="icon" type="text" class="form-control"
@@ -136,22 +190,16 @@
               </div>
             </div>
           </div>
-    </div>
-
-
-
+        </div>
 
 
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-success"
                   [disabled]="noticiaForm.invalid"
-                  (click)="edit?editNoticia(): addNoticia()">Añadir Noticia</button>
+                  (click)="edit?editNoticia(): addNoticia()">Añadir Noticia
+          </button>
 
         </div>
-
-
-
-
 
 
       </form>
@@ -160,10 +208,10 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <h2>{{title.value === ''?'Título':title.value}}</h2>
+            <h2>{{title.value === '' ? 'Título' : title.value}}</h2>
           </div>
           <div class="card-subtitle">
-            {{subtitle.value === ''?'Subtítulo':subtitle.value}}</div>
+            {{subtitle.value === '' ? 'Subtítulo' : subtitle.value}}</div>
         </div>
 
         <img [src]="images.value
@@ -171,25 +219,25 @@
              [alt]="title.value"/>
         <div class="card-body">
           <p
-            class="card-text">{{content.value===''?'Content':content.value}}</p>
+            class="card-text">{{content.value === '' ? 'Content' : content.value}}</p>
         </div>
         <div class="card-footer">
           <div class=" d-flex justify-content-between">
             <p class="text-muted ">
-              {{ dateNoticia.value === ''?(date | date: 'mediumDate'):
+              {{ dateNoticia.value === '' ? (date | date: 'mediumDate') :
               dateNoticia.value | date: 'mediumDate'}}</p>
           </div>
           <div class=" d-flex justify-content-between">
             <p class="text-muted ">
-              {{author.value === ''?'Author':author.value}}</p>
+              {{author.value === '' ? 'Author' : author.value}}</p>
           </div>
           <div class=" d-flex justify-content-between">
             <p class="text-muted ">
-              {{name.value === ''?'Seccion':name.value}}</p>
+              {{name.value === '' ? 'Seccion' : name.value}}</p>
           </div>
           <div class=" d-flex justify-content-between">
             <p class="text-muted ">
-              {{icon.value === ''?'Icono':icon.value}}</p>
+              {{icon.value === '' ? 'Icono' : icon.value}}</p>
           </div>
         </div>
       </div>
@@ -197,7 +245,7 @@
   </div>
   <ng-toast class="toast-container position-fixed
 bg-success text-light top-0 end-50 p-1"
-             style="z-index: 1200" *ngIf="toastShow">
+            style="z-index: 1200" *ngIf="toastShow">
     {{toast.body}}
   </ng-toast>
 </div>

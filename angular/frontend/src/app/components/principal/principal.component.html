@@ -6,7 +6,7 @@
           <div class="card-img ">
             <swiper-container pagination="true">
               <swiper-slide class="slide-full" *ngFor="let imagen of noticia.images">
-                <img [src]="imagen" class="slide-image" alt="Imagen">
+                <img [src]="imagen" class="slide-image" alt="Imagen" >
               </swiper-slide>
             </swiper-container>
           </div>
@@ -25,6 +25,7 @@
                                matTooltip="Pulse aqui para ver el contenido de la noticia">
             <mat-expansion-panel-header class="bg-warning btn-outline-dark justify-content-center">
               <mat-panel-title class="m-3">
+
                 CONTENIDO - PULSE AQUÍ
               </mat-panel-title>
             </mat-expansion-panel-header>
@@ -36,7 +37,9 @@
 
 
           <div class="row-cols-auto">
-            <p><strong>{{noticia.section.name}}</strong></p>
+            <p *ngIf="noticia.section.name == 'Deportes'"><fa-icon [icon]="faBasketball"></fa-icon> {{noticia.section.name}}</p>
+            <p *ngIf="noticia.section.name == 'Actualidad'"><fa-icon [icon]="faNewspaper"></fa-icon> {{noticia.section.name}}</p>
+            <p *ngIf="noticia.section.name == 'Tecnologia'"><fa-icon [icon]="faDesktop"></fa-icon> {{noticia.section.name}}</p>
 
           </div>
 

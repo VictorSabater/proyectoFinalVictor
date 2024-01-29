@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormValidators} from "../../validators/form-validator";
 import {NoticiaService} from "../../services/noticia.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {APINoticia} from "../../common/noticia";
+import {faCirclePlus, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import {faFootball, faBookmark, faDesktop} from "@fortawesome/free-solid-svg-icons";
+
 
 
 
@@ -42,6 +45,10 @@ export class NoticiaEditComponent implements OnInit{
       route: []
     })
   });
+
+  myNewImage = new FormGroup({
+    newImage: new FormControl('')
+  })
 
   noticiaAnyadir: APINoticia = {
     title: '',
@@ -114,6 +121,10 @@ export class NoticiaEditComponent implements OnInit{
     return this.noticiaForm.get('section.icon')
   }
 
+  get newImage(): any{
+    return this.myNewImage.get('newImage')?.value;
+  }
+
 
   addNoticia(){
     console.log(this.noticiaForm)
@@ -168,5 +179,22 @@ export class NoticiaEditComponent implements OnInit{
     )
   }
 
+  addNewImages(newImage: string){
+    let newImages;
+    if (!this.edit) this.images.push(newImage)
+    else {
+      newImages = this.noticiaForm.getRawValue().images;
+      newImages.push(newImage);
+      this.images.push(newImage);
+      this.noticiaForm.setControl('images',new FormControl(newImages))
+    }
+    this.myNewImage.reset();
+
+  }
   protected readonly Date = Date;
+  protected readonly faCirclePlus = faCirclePlus;
+  protected readonly faFootball = faFootball;
+  protected readonly faDesktop = faDesktop;
+  protected readonly faBookmark = faBookmark;
+
 }
