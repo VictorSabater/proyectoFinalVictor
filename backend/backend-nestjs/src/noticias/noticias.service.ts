@@ -27,7 +27,7 @@ export class NoticiasService {
 
     async getNoticias(): Promise<NoticiaNest[] |APIResult> {
         try {
-            return await this.noticiaModel.find()
+            return await this.noticiaModel.find().sort({'date':-1})
         } catch (e) {
             return {
                 status: e
