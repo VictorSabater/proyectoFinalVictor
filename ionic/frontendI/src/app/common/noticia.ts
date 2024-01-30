@@ -8,8 +8,8 @@ export interface APINoticia {
   date: string
   content: string
   images: string[]
-  comments?: Comments[]
-  __v?: number
+  comments: Comments[]
+  __v: number
 }
 
 export interface Section {
