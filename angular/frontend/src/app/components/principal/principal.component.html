@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-2 justify-content-center rounded-5">
-    <div class="col-md-3 my-4 m-5" *ngFor="let noticia of noticias ">
+    <div class="col-md-4 my-4 m-5" *ngFor="let noticia of noticias ">
       <div class="card  bg-dark-subtle">
         <div class="card-header  ">
           <div class="card-img ">
@@ -26,7 +26,7 @@
             <mat-expansion-panel-header class="bg-warning btn-outline-dark justify-content-center">
               <mat-panel-title class="m-3">
 
-                CONTENIDO - PULSE AQUÍ
+                CONTENIDO -->
               </mat-panel-title>
             </mat-expansion-panel-header>
             {{noticia.content}}
@@ -44,13 +44,14 @@
           </div>
 
 
-          <div class="col container-fluid ">
+          <div class="col ">
             <div class="likes">
               <!--INNOVACION 3 MAT CHIP LISTBOX-->
               <mat-chip-listbox aria-label="Seleccion de likes">
 
-                <mat-chip-option color="accent">Me gusta</mat-chip-option>
-                <mat-chip-option color="primary">No me gusta</mat-chip-option>
+                <mat-chip-option color="accent" class="m-auto" > Me gusta</mat-chip-option>
+
+                <mat-chip-option color="primary" class="m-auto">No me gusta</mat-chip-option>
               </mat-chip-listbox>
             </div>
 
@@ -64,13 +65,13 @@
             {{noticia.date}}
           </div>
           <div class="row-cols-2 p-1 ">
-            <button class="btn btn-outline-dark bg-secondary col-xs-2 margin-left"
-                    [routerLink]="'/principal/edit/'+noticia._id" type="submit">Editar
+            <button class="btn btn-outline-dark bg-success-subtle col-xs-2 margin-left"
+                    [routerLink]="'/principal/edit/'+noticia._id" type="submit"><fa-icon [icon]="faPenToSquare"></fa-icon>
             </button>
             <button class="btn btn-outline-dark bg-danger col-xs-2 margin-left" data-bs-toggle="modal"
                     (click)="noticiaDelete=noticia"
-                    data-bs-target="#deleteModal">
-              Borrar
+                    data-bs-target="#deleteModal"><fa-icon [icon]="faTrashsCan"></fa-icon>
+
             </button>
             <div class="modal fade" id="deleteModal"
                  tabindex="-1" aria-labelledby="deleteModalLabel"

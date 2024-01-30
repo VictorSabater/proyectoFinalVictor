@@ -1,10 +1,10 @@
 .slide-image{
-  height: 230px;
+  height: 280px;
   width: 380px;
 
-  max-height: 230px;
+  max-height: 330px;
 
-  max-width: 380px;
+  max-width: 480px;
 
 }
 
@@ -23,6 +23,8 @@
 .card:hover{
   cursor: pointer;
   color: black;
+  box-shadow: 5px 5px 5px 5px #e0ac08;
+
 }
 
 

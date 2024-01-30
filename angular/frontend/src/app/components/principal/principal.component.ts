@@ -9,7 +9,7 @@ import {
   faDesktop,
   faEarthAmericas,
   faEarthEurope,
-  faFootball, faNewspaper
+  faFootball, faNewspaper, faPenToSquare, faThumbsDown, faThumbsUp, faTrashCan
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -74,4 +74,7 @@ export class PrincipalComponent implements OnInit {
   protected readonly faBasketball = faBasketball;
   protected readonly faNewspaper = faNewspaper;
   protected readonly faDesktop = faDesktop;
+  protected readonly faThumbsUp = faThumbsUp;
+  protected readonly faTrashsCan = faTrashCan;
+  protected readonly faPenToSquare = faPenToSquare;
 }
