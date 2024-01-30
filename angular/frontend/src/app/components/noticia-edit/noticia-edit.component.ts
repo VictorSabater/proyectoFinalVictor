@@ -29,7 +29,7 @@ export class NoticiaEditComponent implements OnInit{
       FormValidators.notOnlyWhiteSpace]],
     content: ['', [Validators.minLength(2),Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    images: [[], [ Validators.required]],
+    images: [[]],
     author: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
@@ -62,6 +62,8 @@ export class NoticiaEditComponent implements OnInit{
     }
   }
   id!: string | null
+  mostrarImagen: string[] = []
+
 
   toast = {
     header: '',
@@ -180,16 +182,19 @@ export class NoticiaEditComponent implements OnInit{
   }
 
   addNewImages(newImage: string){
-    let newImages = [];
-    if (!this.edit) this.images.value.push(newImage)
+    this.mostrarImagen = [];
+    if (!this.edit) {
+      this.images.value.push(newImage)
+      this.mostrarImagen = this.images.value
+    }
     else {
-      newImages = this.noticiaForm.getRawValue().images;
-      console.log(newImages)
-      newImages.push(newImage);
+      this.mostrarImagen = this.noticiaForm.getRawValue().images;
+      console.log(this.mostrarImagen)
+      this.mostrarImagen.push(newImage);
       this.images.push(newImage);
-      console.log(newImages)
+      console.log(this.mostrarImagen)
       console.log(this.images)
-      this.noticiaForm.setControl('images',new FormControl(newImages))
+      this.noticiaForm.setControl('images',new FormControl(this.mostrarImagen))
     }
     this.myNewImage.reset();
 
