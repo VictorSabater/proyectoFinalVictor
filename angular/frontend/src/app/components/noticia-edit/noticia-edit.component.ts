@@ -44,7 +44,7 @@ export class NoticiaEditComponent implements OnInit{
         FormValidators.notOnlyWhiteSpace]],
       route: []
     }),
-    comments: ['']
+    comments: []
   });
 
   myNewImage = new FormGroup({
@@ -143,7 +143,8 @@ export class NoticiaEditComponent implements OnInit{
         console.log(data)
         this.toastGenerator(data);
         this.toastShow = true
-
+        console.log(this.noticiaForm)
+        console.log(this.noticiaAnyadir)
         this.router.navigateByUrl('/principal');
       }
     )
