@@ -4,7 +4,7 @@ import {FormValidators} from "../../validators/form-validator";
 import {NoticiaService} from "../../services/noticia.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {APINoticia} from "../../common/noticia";
-import {faCirclePlus, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import {faCircleMinus, faCirclePlus, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import {faFootball, faBookmark, faDesktop} from "@fortawesome/free-solid-svg-icons";
 
 
@@ -206,5 +206,6 @@ export class NoticiaEditComponent implements OnInit{
   protected readonly faFootball = faFootball;
   protected readonly faDesktop = faDesktop;
   protected readonly faBookmark = faBookmark;
+  protected readonly faCircleMinus = faCircleMinus;
 
 }
