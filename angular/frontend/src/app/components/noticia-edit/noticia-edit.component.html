@@ -78,7 +78,7 @@
           <select multiple formControlName="images" type="text" class="form-select"
                   id="images" >
 
-            <option *ngFor='let img of images.value' [value]="img">{{img}}</option>
+            <option *ngFor='let img of mostrarImagen' [value]="img">{{img}}</option>
           </select>
 
 
@@ -101,7 +101,7 @@
           <select multiple formControlName="images" type="text" class="form-select"
                   id="imagesAdd">
 
-            <option *ngFor='let img of images.value' [value]="img">{{img}}</option>
+            <option *ngFor='let img of mostrarImagen' [value]="img">{{img}}</option>
           </select>
 
 

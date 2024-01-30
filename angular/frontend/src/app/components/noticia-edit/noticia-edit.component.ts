@@ -43,7 +43,8 @@ export class NoticiaEditComponent implements OnInit{
         Validators.maxLength(255), Validators.required,
         FormValidators.notOnlyWhiteSpace]],
       route: []
-    })
+    }),
+    comments: ['']
   });
 
   myNewImage = new FormGroup({
@@ -176,6 +177,7 @@ export class NoticiaEditComponent implements OnInit{
       {
         next: value => {
           this.noticiaForm.setValue(value);
+          this.mostrarImagen = this.noticiaForm.getRawValue().images
         }
       }
     )
