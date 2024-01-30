@@ -29,7 +29,7 @@ export class NoticiaEditComponent implements OnInit{
       FormValidators.notOnlyWhiteSpace]],
     content: ['', [Validators.minLength(2),Validators.required,
       FormValidators.notOnlyWhiteSpace]],
-    images: ['', [ Validators.required]],
+    images: [[], [ Validators.required]],
     author: ['', [Validators.minLength(2),
       Validators.maxLength(255), Validators.required,
       FormValidators.notOnlyWhiteSpace]],
@@ -180,12 +180,15 @@ export class NoticiaEditComponent implements OnInit{
   }
 
   addNewImages(newImage: string){
-    let newImages;
-    if (!this.edit) this.images.push(newImage)
+    let newImages = [];
+    if (!this.edit) this.images.value.push(newImage)
     else {
       newImages = this.noticiaForm.getRawValue().images;
+      console.log(newImages)
       newImages.push(newImage);
       this.images.push(newImage);
+      console.log(newImages)
+      console.log(this.images)
       this.noticiaForm.setControl('images',new FormControl(newImages))
     }
     this.myNewImage.reset();
