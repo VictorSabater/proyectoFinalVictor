@@ -13,7 +13,6 @@ export class NoticiaDto {
 export class Section{
     name: string
     icon:string
-    route: string
 }
 
 export class CommentsNest{

@@ -41,8 +41,7 @@ export class NoticiaEditComponent implements OnInit{
 
       icon: ['', [Validators.minLength(2),
         Validators.maxLength(255), Validators.required,
-        FormValidators.notOnlyWhiteSpace]],
-      route: []
+        FormValidators.notOnlyWhiteSpace]]
     }),
     comments: []
   });
@@ -60,7 +59,14 @@ export class NoticiaEditComponent implements OnInit{
     date: '',
     section: {
       name: ''
-    }
+    },
+    comments:[
+      {
+        name:'',
+        email:'',
+        comment:''
+      }
+    ]
   }
   id!: string | null
   mostrarImagen: string[] = []
@@ -138,6 +144,7 @@ export class NoticiaEditComponent implements OnInit{
     this.noticiaAnyadir = this.noticiaForm.value;
     console.log(this.noticiaAnyadir)
     delete this.noticiaAnyadir._id;
+    this.noticiaAnyadir.comments = []
     this.noticiaService.postNoticia(this.noticiaAnyadir).subscribe(
       (data: any) => {
         console.log(data)

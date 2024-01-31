@@ -14,7 +14,6 @@ export interface NoticiaNest{
 export interface SectionNest{
     name: string
     icon:string
-    route: string
 }
 
 export interface CommentsNest{

@@ -15,7 +15,6 @@ export interface APINoticia {
 export interface Section {
   name: string
   icon: string
-  route: string
 }
 
 export interface Comments{

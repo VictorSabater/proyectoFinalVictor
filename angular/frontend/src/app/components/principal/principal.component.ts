@@ -31,9 +31,15 @@ export class PrincipalComponent implements OnInit {
     date: '',
     section: {
       name: '',
-      route: '',
       icon: ''
-    }
+    },
+    comments:[
+      {
+        name:'',
+        email:'',
+        comment:''
+      }
+    ]
   };
 
 

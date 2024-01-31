@@ -19,7 +19,7 @@
       </ion-menu-toggle>
 
       <ion-menu-toggle *ngFor="let c of componentes">
-        <ion-item [routerLink]="c.route">
+        <ion-item [routerLink]="'/secciones/'+c.name">
           <ion-icon slot="start" [name]="c.icon"></ion-icon>
           <ion-label>
             {{ c.name }}
